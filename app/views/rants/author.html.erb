@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+My name is :
+<%= current_user.name %>
+<br />
+
+
+Here is who I am following :
+  <% current_user.followers.each do |u|  %>
+     <%= User.find(u.idol_id).name %>
+  <% end %>
+
+  <br />
+
+Here is who is following me :
+  <% current_user.idols.each do |i|  %>
+      <%= User.find(i.follower_id).name %>
+  <% end %>
+
+<h1>My Rants</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rants.each do |rant| %>
+      <tr>
+        <td><%= rant.title %></td>
+        <td><%= rant.body %></td>
+        <td><%= link_to 'Show', rant %></td>
+        <td><%= link_to 'Edit', edit_rant_path(rant) %></td>
+        <td><%= link_to 'Destroy', rant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rant', new_rant_path %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @rant.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @rant.body %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @rant.author_id %>
+</p>
+
+<%= link_to 'Edit', edit_rant_path(@rant) %> |
+<%= link_to 'Back', rants_path %>

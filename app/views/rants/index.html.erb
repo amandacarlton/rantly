@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Latest Rants</h1>
+
+  <div class = "row">
+    <% @rants.each do |rant| %>
+      <div class = "col-md-12">
+        <div class="thumbnail hov">
+          <%=rant.user.name%>
+        <div class ="caption">
+        <h3><%= rant.title %></h3>
+        <p><%= rant.body %></p>
+      
+        <%= link_to 'Show', rant %>
+        <%= link_to 'Edit', edit_rant_path(rant) %>
+        <%= link_to 'Destroy', rant, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    </div>
+    </div>
+    <% end %>
+
+</div>
+
+<br>
+
+<%= link_to 'New Rant', new_rant_path %>
