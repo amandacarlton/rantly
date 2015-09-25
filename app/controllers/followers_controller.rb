@@ -25,6 +25,8 @@ class FollowersController < ApplicationController
   # POST /followers.json
   def create
     @follower = Follower.new(follower_params)
+    # @follower.follower_id = follower_id
+    # @follower.idol_id = idol_id
 
     respond_to do |format|
       if @follower.save
@@ -67,8 +69,8 @@ class FollowersController < ApplicationController
       @follower = Follower.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    #Never trust parameters from the scary internet, only allow the white list through.
     def follower_params
-      params.require(:follower).permit(:follower_id, :following_id)
+      params.permit('follower_id', 'idol_id')
     end
 end

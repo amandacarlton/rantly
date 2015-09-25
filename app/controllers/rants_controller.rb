@@ -10,6 +10,7 @@ class RantsController < ApplicationController
 
   def index
     @rants = Rant.all
+    @follower = Follower.new
   end
 
   # GET /rants/1
