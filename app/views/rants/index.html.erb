@@ -6,7 +6,7 @@
     <% @rants.each do |rant| %>
       <div class = "col-md-12">
         <div class="thumbnail hov">
-          <%=rant.user.name%>
+        <p>Ranter:  <%=rant.user.name%> </p>
         <div class ="caption">
         <h3><%= rant.title %></h3>
         <p><%= rant.body %></p>
@@ -15,9 +15,9 @@
     <div><%= hidden_field_tag :idol_id, rant.user_id.to_i %></div>
     <%= f.submit "Follow Ranter", class: "btn btn-primary" %>
     <% end %>
-        <%= link_to 'Show', rant %>
+        <!-- <%= link_to 'Show', rant %>
         <%= link_to 'Edit', edit_rant_path(rant) %>
-        <%= link_to 'Destroy', rant, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Destroy', rant, method: :delete, data: { confirm: 'Are you sure?' } %> -->
       </div>
     </div>
     </div>
